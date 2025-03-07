@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainLayout from './dashboard/layout/MainLayout';
 import AdminIndex from './dashboard/pages/AdminIndex';
+import e from 'cors';
 
 function App() {
   return (
@@ -12,3 +13,4 @@ function App() {
     </BrowserRouter>
   );
 }
+export default App;

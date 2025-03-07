@@ -7,8 +7,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/dashboard" element={<MainLayout />} />
-        <Route path="/dashboard/admin" element={<AdminIndex />} />
+        <Route path="/NewsHive" element={<MainLayout />} />
+        <Route path="/NewsHive/admin" element={<AdminIndex />} />
       </Routes>
     </BrowserRouter>
   );

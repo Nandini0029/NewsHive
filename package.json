@@ -12,7 +12,7 @@
     "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.10",
+    "@tailwindcss/vite": "^4.0.12",
     "axios": "^1.8.1",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.20.3",
@@ -35,17 +35,20 @@
     "react-fast-marquee": "^1.6.5",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.2.0",
-    "tailwindcss": "^4.0.11"
+    "tailwindcss": "^4.0.12"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
+    "@tailwindcss/postcss": "^4.0.12",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
     "eslint": "^9.21.0",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^15.15.0",
+    "postcss": "^8.5.3",
     "vite": "^6.2.0"
   }
 }

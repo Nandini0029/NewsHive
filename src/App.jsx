@@ -1,25 +1,24 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./dashboard/layout/MainLayout";
 import AdminIndex from "./dashboard/pages/AdminIndex";
 
 function App() {
   return (
-    <BrowserRouter basename="/NewsHive">
+    <HashRouter>
       <Routes>
-      {/* <Route path='/login' element={<Login />} /> */}
         {/* Main Dashboard Layout */}
-        <Route path="/dashboard" element={<MainLayout />}>
-          {/* Default redirect to admin */}
+        <Route path="/" element={<MainLayout />}>
+          {/* Redirect base URL to /dashboard/admin */}
           <Route index element={<Navigate to="/dashboard/admin" />} />
 
           {/* Admin Panel */}
-          <Route path="admin" element={<AdminIndex />} />
+          <Route path="dashboard/admin" element={<AdminIndex />} />
 
-          {/* Placeholder for Writer Panel (you can add the component later) */}
-          <Route path="writer" element={<div>Writer Panel Coming Soon!</div>} />
+          {/* Placeholder for Writer Panel */}
+          <Route path="dashboard/writer" element={<div>Writer Panel Coming Soon!</div>} />
         </Route>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

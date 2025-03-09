@@ -8,9 +8,9 @@ function App() {
       <Routes>
       {/* <Route path='/login' element={<Login />} /> */}
         {/* Main Dashboard Layout */}
-        <Route path="/NewsHive/dashboard" element={<MainLayout />}>
+        <Route path="/dashboard" element={<MainLayout />}>
           {/* Default redirect to admin */}
-          <Route index element={<Navigate to="/NewsHive/dashboard/admin" />} />
+          <Route index element={<Navigate to="/dashboard/admin" />} />
 
           {/* Admin Panel */}
           <Route path="admin" element={<AdminIndex />} />

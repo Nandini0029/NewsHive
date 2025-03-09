@@ -4,7 +4,7 @@ import AdminIndex from "./dashboard/pages/AdminIndex";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/NewsHive">
       <Routes>
       {/* <Route path='/login' element={<Login />} /> */}
         {/* Main Dashboard Layout */}

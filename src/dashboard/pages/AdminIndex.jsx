@@ -1,7 +1,8 @@
 import React from 'react';
+import News from '../../info/News';
 
 const AdminIndex = () => {
-  return (
+  return (<>
     <div className='mt-2'>
       <div className='grid grid-cols-5 gap-x-4'>
         <div className='w-full p-8 flex justify-center flex-col rounded-md items-center gap-y-2 bg-white text-slate-700'>
@@ -26,6 +27,8 @@ const AdminIndex = () => {
         </div>
       </div>
     </div>
+    <News></News>
+    </>
   );
 };
 

@@ -1,6 +1,7 @@
 import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import MainLayout from "./dashboard/layout/MainLayout";
 import AdminIndex from "./dashboard/pages/AdminIndex";
+import News from "./info/News";
 
 function App() {
   return (

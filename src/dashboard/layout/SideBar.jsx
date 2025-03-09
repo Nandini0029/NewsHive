@@ -7,13 +7,14 @@ import { IoLogOutOutline } from 'react-icons/io5';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { FiUsers } from 'react-icons/fi';
 import { FaPlus } from 'react-icons/fa';
+import logo from '../../assets/logo.png';
 
 const Sidebar = () => {
     return (
         <div className='w-[250px] h-screen fixed left-0 top-0 bg-white'>
             <div className='h-[70px] flex justify-center items-center'>
                 <Link to='/'>
-                    <img className='w-[190px] h-[35px]' src="https://news-portal-mern.onrender.com/assets/logo-00ebaab6.png" alt="Logo" />
+                    <img className='w-[250px] h-[130px]' src={logo} alt="Logo" />
                 </Link>
             </div>
             <ul className='px-3 flex flex-col gap-y-1 font-medium'>

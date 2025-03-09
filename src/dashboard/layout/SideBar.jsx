@@ -19,7 +19,7 @@ const Sidebar = () => {
             </div>
             <ul className='px-3 flex flex-col gap-y-1 font-medium'>
                 <li>
-                    <Link to='/dashboard' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
+                    <Link to='/NewsHive/dashboard' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
                         <span className='text-xl'><AiFillDashboard /></span>
                         <span>Dashboard</span>
                     </Link>

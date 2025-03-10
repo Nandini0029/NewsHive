@@ -6,12 +6,9 @@ const News = () => {
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
-    const [sortField, setSortField] = useState("publishedAt");
-    const [sortOrder, setSortOrder] = useState("desc");
     const [search, setSearch] = useState("");
     const observer = useRef();
 
-    // Fetch Data Function
     const getData = async () => {
         if (loading || !hasMore) return;
         setLoading(true);
@@ -31,17 +28,6 @@ const News = () => {
         }
     };
 
-    // Debounce Function
-    const debounce = (fn, delay) => {
-        let timer;
-        return (...args) => {
-            if (timer) clearTimeout(timer);
-            timer = setTimeout(() => fn(...args), delay);
-        };
-    };
-
-    const debouncedGetData = debounce(getData, 300);
-
     useEffect(() => {
         getData();
     }, []);
@@ -52,122 +38,75 @@ const News = () => {
 
         observer.current = new IntersectionObserver((entries) => {
             if (entries[0].isIntersecting && hasMore) {
-                debouncedGetData();
+                getData();
             }
         });
 
         if (node) observer.current.observe(node);
     };
 
-    // Handle Search
     const handleSearch = (e) => {
         setSearch(e.target.value);
     };
 
-    // Handle Sorting
-    const handleSort = (field) => {
-        const order = sortField === field && sortOrder === "asc" ? "desc" : "asc";
-        setSortField(field);
-        setSortOrder(order);
-    };
-
-    // Filter & Sort Data
     const filteredData = data.filter((item) =>
         item.title.toLowerCase().includes(search.toLowerCase()) ||
-        item.repoter.toLowerCase().includes(search.toLowerCase()) ||
-        item.category.toLowerCase().includes(search.toLowerCase())||
-        item.content.toLowerCase().includes(search.toLowerCase())  
+        item.category.toLowerCase().includes(search.toLowerCase()) ||
+        item.content.toLowerCase().includes(search.toLowerCase())
     );
 
-    const sortedData = [...filteredData].sort((a, b) => {
-        if (sortOrder === "asc") {
-            return a[sortField] > b[sortField] ? 1 : -1;
-        } else {
-            return a[sortField] < b[sortField] ? 1 : -1;
-        }
-    });
+    return (
+        <div className="p-6 bg-blue-50 min-h-screen">
+            <div className="mb-4 flex justify-center">
+                <input
+                    type="text"
+                    placeholder="Search news..."
+                    value={search}
+                    onChange={handleSearch}
+                    className="w-full max-w-lg px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-400 bg-white text-gray-900"
+                />
+            </div>
 
-    const handelDetail = (id)=>{
-        console.log(id);
-    };
-
- return (
-<div className="p-6 bg-blue-50 min-h-screen">
-    {/* Search Input */}
-    <div className="mb-4 flex justify-center">
-        <input
-            type="text"
-            placeholder="Search news..."
-            value={search}
-            onChange={handleSearch}
-            className="w-full max-w-lg px-4 py-2 rounded-lg border border-gray-300 shadow-sm focus:ring-2 focus:ring-blue-400 bg-white text-gray-900 transition-all"
-        />
-    </div>
-
-    {/* Table Container */}
-    <div className="bg-white shadow-lg rounded-lg">
-    <div className="overflow-hidden">
-        <table className="w-full table-fixed border-collapse text-sm text-gray-700">
-            {/* Table Header with Sorting */}
-            <thead className="bg-blue-400 text-white sticky top-0 z-10">
-                <tr>
-                    {["title", "repoter", "category", "publishedAt", "editor"].map((field) => (
-                        <th
-                            key={field}
-                            onClick={() => handleSort(field)}
-                            className="px-4 py-3 w-[180px] truncate cursor-pointer hover:bg-blue-500 transition-all text-center"
-                        >
-                            {field.toUpperCase()} {sortField === field ? (sortOrder === "asc" ? "▲" : "▼") : ""}
-                        </th>
-                    ))}
-                </tr>
-            </thead>
-        </table>
-    </div>
-
-
-
-        {/* Scrollable Table Body */}
-        <div className="overflow-y-auto max-h-[600px]">
-            <table className="w-full table-fixed border-collapse text-left text-sm text-gray-700">
-                <tbody>
-                    {sortedData.map((news, index) => (
-                        // <tr
-                        //     key={index}
-                        //     onClick={() => { handelDetail(news._id); }}
-                        //     ref={index === sortedData.length - 1 ? lastElementRef : null}
-                        //     className="border-b border-gray-300 hover:bg-blue-100 transition-all cursor-pointer"
-                        // >
-                        //     <td className="px-4 py-3 w-[180px] truncate">{news.title}</td>
-                        //     <td className="px-4 py-3 w-[140px] truncate">{news.repoter}</td>
-                        //     <td className="px-4 py-3 w-[140px] truncate">{news.category}</td>
-                        //     <td className="px-4 py-3 w-[140px]">{new Date(news.publishedAt).toLocaleDateString()}</td>
-                        //     <td className="px-4 py-3 w-[140px] truncate">{news.editor}</td>
-                        // </tr>
-                        <tr
-                            key={index}
-                            onClick={() => { handelDetail(news._id); }}
-                            ref={index === sortedData.length - 1 ? lastElementRef : null}
-                            className="border-b border-gray-300 hover:bg-blue-100 transition-all cursor-pointer"
-                        >
-                            <td className="px-4 py-3 w-[600px]">
-                            <div className="font-semibold text-base truncate">{news.title}</div>
-                            <div className="mt-2 flex justify-between text-sm text-gray-700">
-                                <span className="truncate">{news.repoter}</span>
-                                <span className="truncate">{news.category}</span>
-                                <span className="truncate">{news.editor}</span>
-                            </div>
-                                <div className="text-xs text-gray-500 text-right">{new Date(news.publishedAt).toLocaleDateString()}</div>
-                            </td>
-                        </tr>
-
-                    ))}
-                </tbody>
-            </table>
+            <div className="bg-white shadow-lg rounded-lg">
+                <div className="overflow-hidden">
+                    <table className="w-full table-fixed border-collapse text-sm text-gray-700">
+                        <thead className="bg-blue-400 text-white sticky top-0 z-10">
+                            <tr>
+                                <th className="px-4 py-3 w-[300px] text-center">Title</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Image</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Category</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Editor</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Date</th>
+                                <th className="px-4 py-3 w-[100px] text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {filteredData.map((news, index) => (
+                                <tr 
+                                    key={index} 
+                                    ref={index === filteredData.length - 1 ? lastElementRef : null}
+                                    className="border-b border-gray-300 hover:bg-blue-100">
+                                    <td className="px-4 py-3 truncate">{news.title}</td>
+                                    <td className="px-4 py-3">
+                                        <img 
+                                            src={news.media?.path ? `https://your-image-base-url.com/${news.media.path}` : 'https://via.placeholder.com/150'} 
+                                            alt={news.title} 
+                                            className="w-24 h-16 object-cover rounded-md"
+                                        />
+                                    </td>
+                                    <td className="px-4 py-3 truncate text-center">{news.category}</td>
+                                    <td className="px-4 py-3 truncate text-center">{news.editor || "N/A"}</td>
+                                    <td className="px-4 py-3 text-center">{new Date(news.publishedAt).toLocaleDateString()}</td>
+                                    <td className="px-4 py-3 text-center">
+                                        <span className="inline-block w-3 h-3 rounded-full" style={{ backgroundColor: '#10B981' }}></span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
     );
 };
 

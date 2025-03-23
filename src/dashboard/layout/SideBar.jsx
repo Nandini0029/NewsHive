@@ -14,7 +14,7 @@ const Sidebar = () => {
         <div className='w-[250px] h-screen fixed left-0 top-0 bg-white'>
             <div className='h-[70px] flex justify-center items-center'>
                 <Link to='/'>
-                    <img className='w-[250px] h-[130px]' src={logo} alt="Logo" />
+                    <img className='w-[150px] h-[50px]' src={logo} alt="Logo" />
                 </Link>
             </div>
             <ul className='px-3 flex flex-col gap-y-1 font-medium'>

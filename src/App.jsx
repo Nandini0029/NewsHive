@@ -1,25 +1,23 @@
-import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, HashRouter as Router, Navigate } from "react-router-dom";
+import Home from "./Pages/Home";
+import NewsInfo from "./Pages/NewsInfo";
 import MainLayout from "./dashboard/layout/MainLayout";
-import AdminIndex from "./dashboard/pages/AdminIndex";
-import News from "./info/News";
 
 function App() {
   return (
-    <HashRouter>
+    <Router>
       <Routes>
-        {/* Main Dashboard Layout */}
-        <Route path="/" element={<MainLayout />}>
-          {/* Redirect base URL to /dashboard/admin */}
-          <Route index element={<Navigate to="/dashboard/admin" />} />
+        {/* Redirect root to /NewsHive */}
+        <Route path="/" element={<Navigate to="/NewsHive" />} />
 
-          {/* Admin Panel */}
-          <Route path="dashboard/admin" element={<AdminIndex />} />
-
-          {/* Placeholder for Writer Panel */}
-          <Route path="dashboard/writer" element={<div>Writer Panel Coming Soon!</div>} />
-        </Route>
+        {/* Define Routes */}
+        <Route path="/NewsHive" element={<Home />} />
+        <Route path="/admin" element={<MainLayout />} />
+        <Route path="/news/:id" element={<NewsInfo/>}/>
+        {/* Catch-all route for 404 */}
+        <Route path="*" element={<Navigate to="/NewsHive" />} />
       </Routes>
-    </HashRouter>
+    </Router>
   );
 }
 

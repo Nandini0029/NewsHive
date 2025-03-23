@@ -23,7 +23,7 @@ function NewsInfo() {
     const getData = async()=>{
         try
         {
-        const data  = await axios.post("http://localhost:3000/news",{id});
+        const data  = await axios.post("https://newshive-express-1.onrender.com/news",{id});
         if(data.status == 200)
         {
             setNewsItem(data.data);

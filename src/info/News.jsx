@@ -1,4 +1,5 @@
 import axios from "axios";
+import NewsOverlay from "./NewsOverlay";
 import { useState, useEffect, useRef } from "react";
 
 const News = () => {
@@ -8,6 +9,13 @@ const News = () => {
     const [hasMore, setHasMore] = useState(true);
     const [search, setSearch] = useState("");
     const observer = useRef();
+    const [news,setNews] = useState();
+    const [isOverlayOpen, setIsOverlayOpen] = useState(false);
+
+    const handelShow = (news)=>{
+        setNews(news);
+        setIsOverlayOpen(true);
+    };
 
     const getData = async () => {
         if (loading || !hasMore) return;
@@ -56,6 +64,10 @@ const News = () => {
     );
 
     return (
+        <>
+        {isOverlayOpen && (
+            <NewsOverlay news={news} onClose={() => setIsOverlayOpen(false)} />
+        )}    
         <div className="p-6 bg-blue-50 min-h-screen">
             <div className="mb-4 flex justify-center">
                 <input
@@ -68,6 +80,56 @@ const News = () => {
             </div>
 
             <div className="bg-white shadow-lg rounded-lg">
+                <div className="overflow-y-auto max-h-[400px]"> {/* Set max height and allow scrolling */}
+                    <table className="w-full table-fixed border-collapse text-sm text-gray-700">
+                        <thead className="bg-blue-400 text-white sticky top-0 z-10">
+                            <tr>
+                                <th className="px-4 py-3 w-[300px] text-center">Title</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Image</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Category</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Editor</th>
+                                <th className="px-4 py-3 w-[150px] text-center">Date</th>
+                                <th className="px-4 py-3 w-[100px] text-center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody className="divide-y divide-gray-300">
+                            {filteredData.map((news, index) => (
+                                <tr onClick={()=>{handelShow(news)}}
+                                    key={index} 
+                                    ref={index === filteredData.length - 1 ? lastElementRef : null}
+                                    className="hover:bg-blue-100" style={{"cursor":"pointer"}}>
+                                    <td className="px-4 py-3 truncate">{news.title}</td>
+                                    <td className="px-4 py-3">
+                                        <img 
+                                            src={news.media?.path ? `https://newshive-express-1.onrender.com/images/${news.media.path}` : 'https://via.placeholder.com/150'} 
+                                            alt={news.title} 
+                                            className="w-24 h-16 object-cover rounded-md"
+                                        />
+                                    </td>
+                                    <td className="px-4 py-3 truncate text-center">{news.category}</td>
+                                    <td className="px-4 py-3 truncate text-center">{news.editor || "N/A"}</td>
+                                    <td className="px-4 py-3 text-center">{new Date(news.publishedAt).toLocaleDateString()}</td>
+                                    <td className="px-4 py-3 text-center">
+                                    <span
+                                    className="inline-block w-3 h-3 rounded-full"
+                                    style={{
+                                        backgroundColor:
+                                        news.status === "active"
+                                            ? "#10B981" // Green for active
+                                            : news.status === "pending"
+                                            ? "#FBBF24" // Yellow for pending
+                                            : "#EF4444" // Red for unactive
+                                    }}
+                                    ></span>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            {/* <div className="bg-white shadow-lg rounded-lg">
                 <div className="overflow-hidden">
                     <table className="w-full table-fixed border-collapse text-sm text-gray-700">
                         <thead className="bg-blue-400 text-white sticky top-0 z-10">
@@ -89,7 +151,7 @@ const News = () => {
                                     <td className="px-4 py-3 truncate">{news.title}</td>
                                     <td className="px-4 py-3">
                                         <img 
-                                            src={news.media?.path ? `https://your-image-base-url.com/${news.media.path}` : 'https://via.placeholder.com/150'} 
+                                            src={news.media?.path ? `https://newshive-express-1.onrender.com/images/${news.media.path}` : 'https://via.placeholder.com/150'} 
                                             alt={news.title} 
                                             className="w-24 h-16 object-cover rounded-md"
                                         />
@@ -105,8 +167,9 @@ const News = () => {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> */}
         </div>
+        </>
     );
 };
 

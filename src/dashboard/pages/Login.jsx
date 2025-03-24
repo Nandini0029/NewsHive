@@ -14,33 +14,41 @@ const Login = () => {
         {/* Form */}
         <form className="space-y-6">
           {/* Email Input */}
-          <div className="relative">
-            <input
-              type="email"
-              required
-              className="w-full px-3 py-3 text-gray-800 bg-transparent border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 peer"
-            />
-            <label className="absolute left-3 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-blue-600">
+          <div className="space-y-2">
+            <label 
+              htmlFor="email" 
+              className="block text-sm font-medium text-gray-700"
+            >
               Email
             </label>
+            <input
+              type="email"
+              id="email"
+              required
+              className="w-full px-3 py-2 text-gray-800 bg-white border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
+            />
           </div>
 
           {/* Password Input */}
-          <div className="relative">
-            <input
-              type="password"
-              required
-              className="w-full px-3 py-3 text-gray-800 bg-transparent border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400 peer"
-            />
-            <label className="absolute left-3 top-3 text-gray-500 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-400 peer-focus:top-1 peer-focus:text-xs peer-focus:text-blue-600">
+          <div className="space-y-2">
+            <label 
+              htmlFor="password" 
+              className="block text-sm font-medium text-gray-700"
+            >
               Password
             </label>
+            <input
+              type="password"
+              id="password"
+              required
+              className="w-full px-3 py-2 text-gray-800 bg-white border border-gray-300 rounded-md outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
+            />
           </div>
 
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full py-3 mt-2 text-lg font-semibold text-white bg-blue-500 rounded-md shadow-md hover:bg-blue-600 transition-all duration-300"
+            className="w-full py-3 mt-4 text-lg font-semibold text-white bg-blue-500 rounded-md shadow-md hover:bg-blue-600 transition-all duration-300"
           >
             Login
           </button>

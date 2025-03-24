@@ -97,7 +97,7 @@ function Home() {
   const [news, setNews] = useState([]);
 
   useEffect(() => {
-    axios.get("https://newshive-express-1.onrender.com/newsData?page=3").then((response) => {
+    axios.get("https://newshive-express-1.onrender.com/rndData?page=3").then((response) => {
       setNews(response.data.data);
       console.log(response.data.data);
     });

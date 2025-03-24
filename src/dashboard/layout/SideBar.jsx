@@ -19,15 +19,21 @@ const Sidebar = () => {
             </div>
             <ul className='px-3 flex flex-col gap-y-1 font-medium'>
                 <li>
-                    <Link to='/dashboard' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
+                    <Link to='/admin' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
                         <span className='text-xl'><AiFillDashboard /></span>
                         <span>Dashboard</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to='/dashboard/news/create' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
+                    <Link to='/admin/writer/add' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
                         <span className='text-xl'><FaPlus /></span>
                         <span>Add Writer</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/admin/writers' className='px-3 py-2 hover:shadow-lg hover:shadow-indigo-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-indigo-500 hover:text-white'>
+                        <span className='text-xl'><FiUsers /></span>
+                        <span>Writers</span>
                     </Link>
                 </li>
                 <li>

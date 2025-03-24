@@ -45,9 +45,12 @@ function AddWriters() {
               className="w-full border border-gray-300 rounded-md p-2"
             >
               <option value="">--select category--</option>
-              <option value="News">News</option>
-              <option value="Sports">Sports</option>
-              <option value="Entertainment">Entertainment</option>
+              <option value="Education">Education</option>
+                <option value="Travel">Travel</option>
+                <option value="Health">Health</option>
+                <option value="International">International</option>
+                <option value="Sports">Sports</option>
+                <option value="Technology">Technology</option>
             </select>
           </div>
 

@@ -115,7 +115,7 @@ function Home() {
         <nav>
           <ul className="flex space-x-8 text-lg text-[#333333]">
             <li className="hover:text-[#CC0000] cursor-pointer">Home</li>
-            <li className="hover:text-[#CC0000] cursor-pointer"><Link to={"/admin"}>Admin</Link></li>
+            <li className="hover:text-[#CC0000] cursor-pointer"><Link to={"/login"}>Login</Link></li>
             <li className="hover:text-[#CC0000] cursor-pointer">Politics</li>
             <li className="hover:text-[#CC0000] cursor-pointer">Sports</li>
           </ul>

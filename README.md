@@ -25,9 +25,9 @@ Meet the team behind **NewHive**:
 | Name | GitHub | LinkedIn |
 |------|--------|---------|
 | **Aditya Parmar** | [@AdityaPrmr](https://github.com/AdityaPrmr) | [LinkedIn](https://www.linkedin.com/in/adityaparmar-) |
-| **Contributor 2** | [@GitHub](https://github.com/contributor2) | [LinkedIn](https://www.linkedin.com/in/contributor2) |
-| **Contributor 3** | [@GitHub](https://github.com/contributor3) | [LinkedIn](https://www.linkedin.com/in/contributor3) |
-| **Contributor 4** | [@GitHub](https://github.com/contributor4) | [LinkedIn](https://www.linkedin.com/in/contributor4) |
+| **Anuj Mondal** | [@GitHub](https://github.com/AnujMondal) | [LinkedIn](www.linkedin.com/in/anujmondal) |
+| **Nandini Kapil** | [@GitHub](https://github.com/Nandini0029) | [LinkedIn](https://www.linkedin.com/in/nandini-kapil-3704b3242) |
+| **Charu Thakral** | [@GitHub](https://github.com/CharuThakral03) | [LinkedIn](https://www.linkedin.com/in/charuthakral) |
 
 ## 📌 Installation & Setup
 1. Clone the repository:

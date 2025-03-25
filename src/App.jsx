@@ -11,6 +11,7 @@ import WriterIndex from "./dashboard/pages/WriterIndex";
 import AddWriter from "./dashboard/pages/AddWriter";
 import Writers from "./dashboard/pages/Writers";
 import Login from "./dashboard/pages/Login";
+import Profile from "./dashboard/pages/Profile";
 function App() {
   return (
     <Router>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/admin" element={<MainLayout />}>
           <Route path="writer/add" element={<AddWriter />} />
           <Route path="writers" element={<Writers />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
 
         <Route path="/news/:id" element={<NewsInfo />} />

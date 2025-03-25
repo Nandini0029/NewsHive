@@ -1,6 +1,6 @@
 # NewHive
 
-![NewHive Banner](https://your-image-link.com)
+![NewHive Banner](src/assets/logo.png)
 
 ## 🚀 About the Project
 NewHive is an innovative platform designed to [briefly explain what your project does]. Our goal is to [mention the problem it solves or the purpose it serves].

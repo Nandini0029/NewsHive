@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 function AddWriters() {
   const [formData, setFormData] = useState({
     name: "",
@@ -13,9 +13,27 @@ function AddWriters() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    
+    try {
+      const res = await axios.post("https://newshive-express-1.onrender.com/add-writer", formData);
+      
+      console.log("Writer added successfully:", res.data);
+      alert("Writer added successfully!");
+  
+      // Clear the form after successful submission
+      setFormData({
+        name: "",
+        email: "",
+        category: "",
+        password: "",
+      });
+      
+    } catch (error) {
+      console.error("Error adding writer:", error);
+      alert("Failed to add writer. Please try again.");
+    }
   };
 
   return (

@@ -21,7 +21,12 @@ const News = () => {
         if (loading || !hasMore) return;
         setLoading(true);
         try {
-            const res = await axios.get(`https://newshive-express-1.onrender.com/newsData?page=${page}`);
+            const res = await axios.get(`https://newshive-express-1.onrender.com/newsData?page=${page}`, {
+                headers: {
+                  'Authorization': localStorage.getItem("token"),
+                  'Content-Type': 'application/json'
+                }
+              });
             if (res.status === 200) {
                 setData((prevData) => [...prevData, ...res.data.data]);
                 setPage((prevPage) => prevPage + 1);

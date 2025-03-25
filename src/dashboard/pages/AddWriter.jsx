@@ -17,7 +17,12 @@ function AddWriters() {
     e.preventDefault();
     
     try {
-      const res = await axios.post("https://newshive-express-1.onrender.com/add-writer", formData);
+      const res = await axios.post("https://newshive-express-1.onrender.com/add-writer", formData, {
+        headers: {
+          'Authorization': localStorage.getItem("token"),
+          'Content-Type': 'application/json'
+        }
+      });
       
       console.log("Writer added successfully:", res.data);
       alert("Writer added successfully!");

@@ -9,7 +9,13 @@ const AdminIndex = () => {
     const getData = async()=>{
       try
       {
-        const r = await axios.get("https://newshive-express-1.onrender.com/data");
+        const r = await axios.get("https://newshive-express-1.onrender.com/data", {
+          headers: {
+            'Authorization': localStorage.getItem("token"),
+            'Content-Type': 'application/json'
+          }
+        });
+        
         if(r.status == 200)
         {
           setD(r.data);

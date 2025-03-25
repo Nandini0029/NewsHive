@@ -9,7 +9,12 @@ function WriterList() {
   useEffect(() => {
     const fetchWriters = async () => {
       try {
-        const response = await axios.get("https://newshive-express-1.onrender.com/authors");
+        const response = await axios.get("https://newshive-express-1.onrender.com/authors", {
+          headers: {
+            'Authorization': localStorage.getItem("token"),
+            'Content-Type': 'application/json'
+          }
+        });
         setWriters(response.data);
       } catch (err) {
         setError("Failed to fetch writers. Please try again later.");

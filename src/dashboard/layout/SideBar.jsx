@@ -48,12 +48,6 @@ const Sidebar = () => {
                         <span>Profile</span>
                     </Link>
                 </li>
-                <li>
-                    <div onClick={() => alert('Logout clicked')} className='px-3 py-2 hover:shadow-lg hover:shadow-red-500/20 w-full rounded-sm flex gap-x-2 justify-start items-center hover:bg-red-500 hover:text-white cursor-pointer'>
-                        <span className='text-xl'><IoLogOutOutline /></span>
-                        <span>Logout</span>
-                    </div>
-                </li>
             </ul>
         </div>
     );

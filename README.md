@@ -3,13 +3,16 @@
 ![NewHive Banner](src/assets/logo.png)
 
 ## 🚀 About the Project
-NewHive is an innovative platform designed to [briefly explain what your project does]. Our goal is to [mention the problem it solves or the purpose it serves].
+News Hive is an innovative MERN stack web application designed to streamline news reporting and publishing. The platform empowers journalists to submit articles, editors to review and publish content, and readers to access categorized news in real time.
 
 ## 🛠️ Features
-- Feature 1
-- Feature 2
-- Feature 3
-- More...
+✅ User Authentication & Role-Based Access Control – Secure login with JWT authentication for different user roles (Admin, Editor, Reporter).
+✅ Article Submission & Editing – Journalists can submit, edit, and manage their news articles.
+✅ Editorial Review System – Editors can approve, reject, or modify articles before publishing.
+✅ Real-Time Updates – Published articles appear instantly, ensuring up-to-date news coverage.
+✅ Responsive UI – Built using React.js & Tailwind CSS for an intuitive and seamless experience.
+✅ Optimized API & Database Queries – Efficient Axios API calls and MongoDB indexing for faster performance.
+✅ Secure Backend – Developed using Node.js & Express.js, with MongoDB Atlas for cloud-based data storage.
 
 ## 🔗 Live Demo
 [Click here](https://adityaprmr.github.io/NewsHive/) to see NewHive in action!
@@ -50,4 +53,4 @@ Meet the team behind **NewHive**:
 
 
 ## 📬 Contact
-For any queries or collaborations, reach out to us at [parmar2100parmar@gmail.com][][][].
+For any queries or collaborations, reach out to us at [parmar2100parmar@gmail.com][anujmondal2504@gmail.com][nandinikapil2902@gmail.com][charuthakral3@gmail.com].

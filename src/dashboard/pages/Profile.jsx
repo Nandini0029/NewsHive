@@ -20,29 +20,6 @@ const Profile = () => {
                     <span><strong>Role:</strong> Admin</span>
                 </div>
             </div>
-
-            {/* Change Password Section */}
-            <div className='bg-white px-6 py-4 text-[#404040]'>
-                <h2 className='pb-3 text-center font-semibold text-lg'>Change Password</h2>
-
-                <form>
-                    <div className='grid grid-cols-1 gap-y-5 mb-3'>
-                        <div className='flex flex-col gap-y-2'>
-                            <label className='text-md font-medium text-gray-600' htmlFor="old_password">Old Password</label>
-                            <input type="password" placeholder='Old Password' name='old_password' className='px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' id='old_password' />
-                        </div>
-
-                        <div className='flex flex-col gap-y-2'>
-                            <label className='text-md font-medium text-gray-600' htmlFor="new_password">New Password</label>
-                            <input type="password" placeholder='New Password' name='new_password' className='px-3 py-2 rounded-md outline-0 border border-gray-300 focus:border-green-500 h-10' id='new_password' />
-                        </div>
-                    </div>
-
-                    <div className='mt-4 text-center'>
-                        <button className='px-4 py-2 bg-purple-500 rounded text-white hover:bg-purple-600 transition-all'>Change Password</button>
-                    </div>
-                </form>
-            </div>
         </div>
     );
 }

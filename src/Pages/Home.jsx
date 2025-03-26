@@ -202,7 +202,7 @@ function LatestNews({ news }) {
         Latest News
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {news.slice(1, 7).map((article, index) => (
+        {news.slice(1, 15).map((article, index) => (
           <Link to={`/news/${article._id}`} key={index}>
             <motion.div
               className="bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300"

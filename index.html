@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/NewsHive/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>News Hive</title>
+    <script>
+      document.addEventListener("contextmenu", (event) => event.preventDefault()); // Disable right-click
+      
+      document.addEventListener("keydown", (event) => {
+        if ((event.ctrlKey && event.key === "c") || (event.ctrlKey && event.key === "u")) {
+          event.preventDefault(); // Disable Ctrl + C (Copy) and Ctrl + U (View Source)
+        }
+      });
+    
+      document.addEventListener("copy", (event) => event.preventDefault()); // Disable Copy  
+      document.addEventListener("cut", (event) => event.preventDefault()); // Disable Cut  
+    
+      document.addEventListener("selectstart", (event) => event.preventDefault()); // Disable Text Selection
+    </script>
+    
+    <script type="module" crossorigin src="/NewsHive/assets/index-BrDWx2NC.js"></script>
+    <link rel="stylesheet" crossorigin href="/NewsHive/assets/index-CP7weAbV.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
